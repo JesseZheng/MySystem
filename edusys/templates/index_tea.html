@@ -1,0 +1,55 @@
+{% extends 'base_tea.html' %}
+
+{% block pagecontent %}
+{{tea_name}}  教务管理系统欢迎您
+{% endblock %}
+
+{% block maincontent %}
+{% load staticfiles %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                教务管理系统教师管理功能介绍
+                            </div>
+                            <div class="panel-body">
+                                <ul class="nav nav-pills">
+                                    <li class="active"><a href="#settings-pills" data-toggle="tab">教务系统</a>
+                                    </li>
+                                    <li class=""><a href="#home-pills" data-toggle="tab">用户管理</a>
+                                    </li>
+                                    <li class=""><a href="#profile-pills" data-toggle="tab">学期课表查询</a>
+                                    </li>
+                                    <li class=""><a href="#messages-pills" data-toggle="tab">学生管理</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane fade" id="home-pills">
+                                        <h4>用户管理</h4>
+                                        <p>在用户管理系统中，你可以修改你的教务系统登录密码。</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile-pills">
+                                        <h4>学期课表查询</h4>
+                                        <p>在学期课表查询系统中，你可以查到你某个学期的授课安排</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="messages-pills">
+                                        <h4>学生管理</h4>
+                                        <p>在学生管理系统中，你可以查询你的班级学生名单和录入学生成绩</p>
+                                    </div>
+                                    <div class="tab-pane fade active in" id="settings-pills">
+                                        <h4>教务系统教师管理简介</h4>
+                                        <p>该教务系统教师管理中分为用户管理，学期课表查询和学生管理三块。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div align="center">
+                    <img src="{% static 'img/ZjutDang.jpg' %}">
+                </div>
+
+
+{% endblock %}

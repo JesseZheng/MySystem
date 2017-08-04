@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}教师管理{% endblock %}</title>
+    {% block jscontent %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans'>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">导航切换</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">教务管理系统</a>
+            </div>
+        </nav>
+        <!--Top Nav-->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-in-div inner-text">
+                            <div class="inner-text">
+                                {{tea_name}}
+                                <br>
+                                {{username}}
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="{% url 'index_tea' %}"><i class="fa fa-home "></i>教师管理系统</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-tag "></i>用户管理 <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{% url 'resetpsw_tea' %}"><i class="fa fa-lock "></i>登录密码修改</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'search_teaching' %}"><i class="fa fa-search "></i>课表查询</a>
+                    </li>
+                    <li>
+                        <a href="Tea_index_Stu"><i class="fa fa-tag "></i>学生管理 <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{% url 'search_students' %}"><i class="fa fa-user "></i>学生名单查询</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'input_grades' %}"><i class="fa fa-user "></i>课程成绩录入</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'loginout' %}"><i class="fa fa-sign-out "></i>退出登录</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">&nbsp&nbsp{% block pagetitle %}教师管理{% endblock %}</h1>
+                        <h1 class="page-subhead-line">{% block pagecontent %}在教师管理界面中，你可以对你的账号进行管理，同时你也可以查询课表，班级名单和录入学生成绩{% endblock %}</h1>
+                    </div>
+                </div>
+
+                {% block maincontent %}   {% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer-sec">
+        BTH002 Assignment
+    </div>
+
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+</body>
+</html>

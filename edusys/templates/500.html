@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERROR 505</title>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forgetPassword.css' %}"  />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+    <div class="container">
+
+         <div class="row text-center">
+
+                <div class="col-md-12 set-pad" >
+
+                            <strong class="error-txt">ERROR ! 505</strong>
+                           <p class="p-err">505 Server Error</p>
+                    <a href="javascript:history.go(-1)" class="btn btn-danger" ><i class="fa fa-mail-reply"></i>&nbsp;返回上一个页面</a>
+                        </div>
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                  <br />
+    <br />
+               <a class="btn btn-success" href="{% url 'login' %}">
+                        返回到登录界面
+                    </a>
+                  <br />
+    <br />
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <hr />
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+
+                BTH002 Assignment
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

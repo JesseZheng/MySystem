@@ -1,0 +1,85 @@
+{% extends 'base_stu.html' %}
+
+    {% block jscontent %}
+    {% if isExist %}
+    <script type="text/javascript">
+        alert('你已选过 {{exist_course}} 课程！');
+    </script>
+    {% endif %}
+    {% if isSuccess %}
+    <script type="text/javascript">
+        confirm('选课成功哦');
+    </script>
+    {% endif %}
+    {% if isFull %}
+    <script type="text/javascript">
+        alert('{{full_course}} 人数已满');
+    </script>
+    {% endif %}
+    {% endblock %}
+
+    {% block title %}选课系统{% endblock %}
+
+    {% block pagetitle %}  选课界面 {% endblock %}
+
+    {% block pagecontent %}  选课界面  {% endblock %}
+        {% block maincontent %}
+            <!--选课界面-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {% block coursetitle %} {% endblock %}
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <form method="post">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>课程号</th>
+                                            <th>课程名</th>
+                                            <th>学时</th>
+                                            <th>学分</th>
+                                            <th>教师</th>
+                                            <th>上课时间</th>
+                                            <th>上课地点</th>
+                                            <th>限报人数</th>
+                                            <th>已报人数</th>
+                                            <th>选课</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for course in courses %}
+                                        <tr>
+                                            <td>{{course.Cno}}</td>
+                                            <td>{{course.Cname}}</td>
+                                            <td>{{course.Classhour}}</td>
+                                            <td>{{course.Credit}}</td>
+                                            <td>{{course.teacher.Tname}}</td>
+                                            <td>{{course.TimeTable}}</td>
+                                            <td>{{course.Place}}</td>
+                                            <td>{{course.Limit_Stu}}</td>
+                                            <td>{{course.Exist_Stu}}</td>
+                                            <td>
+                                                <input type="checkbox" name="course" value="{{course.Cno}}">
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12"><hr></div>
+                                <div class="col-md-10"></div>
+                                <div class="col-md-2">
+                                <input type="submit" name="选课" value="选课" class="btn btn-success">
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        {% endblock %}

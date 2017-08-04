@@ -1,0 +1,72 @@
+{% extends 'base_tea.html' %}
+
+{% block title %}学生名单查询{% endblock %}
+
+    {% block pagetitle %}  学生名单查询  {% endblock %}
+
+    {% block pagecontent %}  学生名单查询  {% endblock %}
+
+
+    {% block maincontent %}
+    <div class="panel-body">
+                    <form method="post">
+                    <div class="col-md-2">
+                        <select class="form-control" name="course">
+
+                        {% if selected %}
+                            <option selected="selected" value="all">所有课程</option>
+                        {% else %}
+                            <option value="all">所有课程</option>
+                        {% endif %}
+
+                        {% for tea_course in tea_courses %}
+                        {% if select_course == tea_course.Cno %}
+                            <option value="{{tea_course.Cno}}" selected="selected">{{tea_course.Cname}}</option>
+                        {% else %}
+                            <option value="{{tea_course.Cno}}">{{tea_course.Cname}}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                        </select>
+                    </div>
+                    <div class="col-md-1" align="center">
+                        <input type="submit" name="" class="btn" value="查询">
+                    </div>
+                    </form>
+    </div>
+
+    <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            学生名单
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>课程名</th>
+                                            <th>学号</th>
+                                            <th>姓名</th>
+                                            <th>性别</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for stu in stu_lists %}
+                                        <tr>
+                                            <td>{{stu.course.Cname}}</td>
+                                            <td>{{stu.student.Sno}}</td>
+                                            <td>{{stu.student.Sname}}</td>
+                                            <td>{{stu.student.Ssex}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endblock %}
